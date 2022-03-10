@@ -1,0 +1,39 @@
+<!doctype html5>
+<html>
+  <head>
+    <title>Memory</title>
+  </head>
+  <body>
+    <label>Select Number to display</label>
+    <select id="numbers"><option value="5">5</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+    <div id="display"></div>
+    <label>Input numbers you see in sequence</label>
+    <textarea id="answer" rows=3></textarea>
+    <input type="submit" value="check" />
+  </body>
+  <script>
+    var data = []
+    const numSelect = document.querySelector('#numbers')
+    numSelect.addEventListener('change', (event)=>{
+      data = []
+      for(var num = 0; num < event.target.value; num++){
+        var item = Math.round(Math.random() * 100)
+        data.push(item)
+        setTimeout(() => {
+          document.querySelector('#display').text = item
+        }, 1000)
+      }
+      setTimeout(() => {
+          document.querySelector('#display').text = ''
+        }, 1000)
+    })
+    
+    document.querySelector('input').addEventListener('click', (e) => {
+      document.querySelector('#answer').text = data.join(',')
+    })
+  </script>
+</html>
