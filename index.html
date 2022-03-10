@@ -24,16 +24,16 @@
         var item = Math.round(Math.random() * 100)
         data.push(item)
         setTimeout(() => {
-          document.querySelector('#display').text = item
+          document.querySelector('#display').innerText = item
         }, 1000)
       }
       setTimeout(() => {
-          document.querySelector('#display').text = ''
+          document.querySelector('#display').innerText = ''
         }, 1000)
     })
     
     document.querySelector('input').addEventListener('click', (e) => {
-      document.querySelector('#answer').text = data.join(',')
+      document.querySelector('#answer').value = data.join(',')
     })
   </script>
 </html>
